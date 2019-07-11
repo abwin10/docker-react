@@ -6,10 +6,8 @@ services:
 before_install:
   - docker build -t abwin10/docker-react -f Dockerfile.dev .
 
-cache:
-  directories:
-    - node_modules
-
+env:
+  - CI=true
 
 script:
   - docker run abwin10/docker-react npm run test
